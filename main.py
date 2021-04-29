@@ -36,7 +36,6 @@ while (True):
                 ea = 5500 / price
                 upbit.buy_market_order("KRW-DOGE", 5500)
                 print('buy done . {}'.format(price))
-                check = 0
                 buyprice = rowprice
                 buycoin = True
 
@@ -46,6 +45,7 @@ while (True):
         if ( price >= hope_buy_price ):
             print('sell doen . {}'.format(price))
             upbit.sell_market_order("KRW-DOGE", ea)
+            check = 0
             buycoin = False
 
     
