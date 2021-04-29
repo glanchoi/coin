@@ -23,6 +23,8 @@ while (True):
 
     #초기화 시간 전에 코인을 못팔면 다시 거래를 시작한다.
     if (check > inittime_sec):
+        topprice = pyupbit.get_current_price("KRW-DOGE")
+        rowprice = pyupbit.get_current_price("KRW-DOGE")
         buycoin = False
         check = 0
 
