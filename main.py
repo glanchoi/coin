@@ -15,10 +15,16 @@ ea = 0
 access="IErYNgo9YrFnUqYYXecJE7OxkUzmzk1CgVryg6ee"
 secret="psumaP4D7af2A9MMfRAXatzuMrx4TvkPLNyli08Q"
 upbit = pyupbit.Upbit(access, secret)
-
+inittime_sec = 3600
 while (True):
     price = pyupbit.get_current_price("KRW-DOGE")
     time.sleep(0.5)
+    check = check + 1
+
+    #초기화 시간 전에 코인을 못팔면 다시 거래를 시작한다.
+    if (check > inittime_sec):
+        buycoin = False
+        check = 0
 
     if (buycoin == False):
         if (price > topprice):
@@ -27,7 +33,7 @@ while (True):
         if (price < rowprice):
             rowprice = price        
 
-        check = check + 1
+
         
         #낮은 가격이 나오면 코인을 삽니다.
         if (check > ( (check_price_min * 60) / 2)):
