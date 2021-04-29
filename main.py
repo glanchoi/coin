@@ -16,12 +16,6 @@ access="IErYNgo9YrFnUqYYXecJE7OxkUzmzk1CgVryg6ee"
 secret="psumaP4D7af2A9MMfRAXatzuMrx4TvkPLNyli08Q"
 upbit = pyupbit.Upbit(access, secret)
 
-# print(upbit.get_order("KRW-LTC", state="done"))
-# quit()
-#print(upbit.sell_market_order("KRW-DOGE", 50))
-#print(upbit.buy_market_order("KRW-DOGE", 5000))
-
-
 while (True):
     price = pyupbit.get_current_price("KRW-DOGE")
     time.sleep(0.5)
@@ -38,7 +32,7 @@ while (True):
         #낮은 가격이 나오면 코인을 삽니다.
         if (check > ( (check_price_min * 60) / 2)):
             print("set buyprice:{}".format(rowprice))
-            if (price <= rowprice):
+            if (price < rowprice):
                 ea = 5500 / price
                 upbit.buy_market_order("KRW-DOGE", 5500)
                 print('buy done . {}'.format(price))
