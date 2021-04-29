@@ -32,7 +32,7 @@ while (True):
         #낮은 가격이 나오면 코인을 삽니다.
         if (check > ( (check_price_min * 60) / 2)):
             print("set buyprice:{}".format(rowprice))
-            if (price < rowprice):
+            if (price <= rowprice):
                 ea = 5500 / price
                 upbit.buy_market_order("KRW-DOGE", 5500)
                 print('buy done . {}'.format(price))
